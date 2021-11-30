@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script displaying "Best School" 10 times
+i=0
+b=9
+until [ "$i" -gt "$b" ]
+do
+  echo "Best School"
+  i=$(( i + 1))
+done

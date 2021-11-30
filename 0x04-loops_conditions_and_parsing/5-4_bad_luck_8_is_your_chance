@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" except in line 4 and 8
+x=0
+b=10
+while [ "$x" -lt "$b" ]
+do
+  if [ "$x" -eq "3" ]
+then
+  echo "bad luck"
+elif [ "$x" -eq "7" ]
+then
+  echo "good luck"
+else
+echo "Best School"
+fi
+  x=$(( x + 1 ))
+done
