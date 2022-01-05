@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# make it happend christian!
+
+sudo service apache2 restart
