@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Made by Christian
+
+apt-get -y update
+apt-get -y install haproxy=2.0.13\*
+echo -e "\nbackend web-backend\n\tbalance roundrobin\n\tserver web1 35.237.188.192 check\n\tserver web2 35.172.200.11:80 check\n"
+echo -e "\nfrontend http\n\tbind *:80\n\tmode http\n\tdefault_backend web-backend\n"
+service haproxy restart
