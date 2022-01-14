@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Made by Facundo Diaz for Holbertom School 2021
+# Made by Christian
 sub (){
     SUBDOMAIN="$2"
     ALL="$2.$1"
