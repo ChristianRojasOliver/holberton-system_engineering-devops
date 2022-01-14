@@ -1,16 +1,24 @@
 #!/usr/bin/env bash
 # Bash scripts displays information about subdomains
-
-answer() {
-    dig "$2.$1" | awk '/;; ANSWER SECTION/ {getline;
-    printf "The subdomain %s is a %s record and points to %s\n", sd, $4, $5}' sd="$2"
+sub (){
+    SUBDOMAIN="$2"
+    ALL="$2.$1"
+    DOMAIN="$1"
+    LINE=$(dig "$ALL" | grep "$DOMAIN" | tail -1)
+    RECORD=$(echo "$LINE" | awk '{print $4}')
+    DESTINATION=$(echo "$LINE" | awk '{print $5}')
+    echo The subdomain "$SUBDOMAIN" is a "$RECORD" record and points to "$DESTINATION"
 }
-if [ $# -gt 1 ]
-then
-    answer "$1" "$2"
+
+if [[ -z "$2" ]]
+then   
+    SUB="www lb-01 web-01 web-02"
+    for i in $SUB;
+    do
+	sub "$1" "$i"
+    done
 else
-    answer "$1" "www"
-    answer "$1" "lib-01"
-    answer "$1" "web-01"
-    answer "$1" "web-02"
+    sub "$1" "$2"
 fi
+
+exit 0
