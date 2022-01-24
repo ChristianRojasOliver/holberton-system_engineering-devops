@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Made by Christian not finish yet
+# Made by Christian
 sub (){
     SUBDOMAIN="$2"
     ALL="$2.$1"
