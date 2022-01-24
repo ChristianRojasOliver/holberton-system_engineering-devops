@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Made by Christian
+sudo -u "$1" whoami
